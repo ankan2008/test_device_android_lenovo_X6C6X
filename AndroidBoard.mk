@@ -16,10 +16,8 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_X6C6X.mk
+LOCAL_PATH := $(call my-dir)
 
-COMMON_LUNCH_CHOICES := \
-    twrp_X6C6X-userdebug \
-    twrp_X6C6X-user \
-    twrp_X6C6X-eng
+ifneq ($(filter X6C6X,$(TARGET_DEVICE)),)
+include $(call all-makefiles-under,$(LOCAL_PATH))
+endif
